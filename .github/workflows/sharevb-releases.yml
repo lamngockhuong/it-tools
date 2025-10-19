@@ -4,9 +4,10 @@ env:
   VITE_VERCEL_ENV: production
 
 on:
-  push:
-    tags:
-      - 'v*.*.*'
+  workflow_dispatch:
+  # push:
+  #   tags:
+  #     - 'v*.*.*'
 
 jobs:
   docker-release:
@@ -89,7 +90,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 22
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm i --ignore-scripts

@@ -146,7 +146,7 @@ onUnmounted(() => {
         <ColoredCard v-if="config.showBanner" :title="$t('home.follow.title')" :icon="IconHeart">
           {{ $t('home.follow.p1') }}
           <a
-            href="https://github.com/sharevb/it-tools"
+            href="https://github.com/lamngockhuong/it-tools"
             rel="noopener"
             target="_blank"
             :aria-label="$t('home.follow.githubRepository')"

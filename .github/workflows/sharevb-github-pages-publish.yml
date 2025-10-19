@@ -5,8 +5,8 @@ env:
 
 on:
   # Runs on pushes targeting the default branch
-  push:
-    branches: ["chore/all-my-stuffs"]
+  # push:
+  #   branches: ["feat/my-stuffs"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -48,7 +48,8 @@ jobs:
 
       - name: Build
         run: |
-          BASE_URL="/it-tools/" pnpm build
+          # BASE_URL="/it-tools/" pnpm build
+          pnpm build
           cp dist/index.html dist/404.html
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -56,7 +57,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: "./dist"
 
       - name: Deploy to GitHub Pages
         id: deployment

@@ -5,9 +5,10 @@ env:
   VITE_VERCEL_ENV: production
   VITE_VERCEL_DEPLOY: true
 on:
-  push:
-    branches:
-      - chore/all-my-stuffs
+  # push:
+  #   branches:
+  #     - feat/my-stuffs
+  workflow_dispatch:
 jobs:
   Deploy-Production:
     runs-on: ubuntu-latest

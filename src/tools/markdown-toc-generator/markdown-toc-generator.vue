@@ -14,13 +14,13 @@ const markdown = ref(`# Some main title
 
 ## First Title
 
-Some text 
+Some text
 
 ## Second  Spaced  Title
 
 Some text
 
-### Title with Link [TOC](http://sharevb-it-tools.vercel.app)
+### Title with Link [TOC](http://it-tools.khuong.dev)
 
 \`\`\`
 ## some bash code

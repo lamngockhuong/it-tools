@@ -15,13 +15,13 @@ describe('markdown-toc-generator', () => {
 
 ## First Title
 
-Some text 
+Some text
 
 ## Second  Spaced  Title
 
 Some text
 
-### Title with Link [TOC](http://sharevb-it-tools.vercel.app)
+### Title with Link [TOC](http://it-tools.khuong.dev)
 
 \`\`\`
 ## some bash code
@@ -50,7 +50,7 @@ Some text
 <!-- TOC ANCHOR --><a name="first-title"></a>
 ## First Title
 
-Some text 
+Some text
 
 <!-- TOC ANCHOR --><a name="second-spaced-title"></a>
 ## Second  Spaced  Title
@@ -58,7 +58,7 @@ Some text
 Some text
 
 <!-- TOC ANCHOR --><a name="title-with-link-toc"></a>
-### Title with Link [TOC](http://sharevb-it-tools.vercel.app)
+### Title with Link [TOC](http://it-tools.khuong.dev)
 
 \`\`\`
 ## some bash code
@@ -86,14 +86,14 @@ Some text
 <!-- TOC ANCHOR --><a name="first-title"></a>
 ## First Title
 
-Some text 
+Some text
 
 <!-- TOC ANCHOR --><a name="second-spaced-title"></a>
 ## Second  Spaced  Title
 
 Some text
 
-### Title with Link [TOC](http://sharevb-it-tools.vercel.app)
+### Title with Link [TOC](http://it-tools.khuong.dev)
 
 \`\`\`
 ## some bash code
@@ -122,7 +122,7 @@ Some text
 {%- # TOC ANCHOR -%}<a name="first-title"></a>
 ## First Title
 
-Some text 
+Some text
 
 {%- # TOC ANCHOR -%}<a name="second-spaced-title"></a>
 ## Second  Spaced  Title
@@ -130,7 +130,7 @@ Some text
 Some text
 
 {%- # TOC ANCHOR -%}<a name="title-with-link-toc"></a>
-### Title with Link [TOC](http://sharevb-it-tools.vercel.app)
+### Title with Link [TOC](http://it-tools.khuong.dev)
 
 \`\`\`
 ## some bash code
@@ -159,13 +159,13 @@ Some text
 
 ## First Title
 
-Some text 
+Some text
 
 ## Second  Spaced  Title
 
 Some text
 
-### Title with Link [TOC](http://sharevb-it-tools.vercel.app)
+### Title with Link [TOC](http://it-tools.khuong.dev)
 
 \`\`\`
 ## some bash code
@@ -195,7 +195,7 @@ Some text
 <!-- TOC ANCHOR --><a name="first-title"></a>
 ## First Title
 
-Some text 
+Some text
 
 <!-- TOC ANCHOR --><a name="second--spaced--title"></a>
 ## Second  Spaced  Title
@@ -203,7 +203,7 @@ Some text
 Some text
 
 <!-- TOC ANCHOR --><a name="title-with-link-toc"></a>
-### Title with Link [TOC](http://sharevb-it-tools.vercel.app)
+### Title with Link [TOC](http://it-tools.khuong.dev)
 
 \`\`\`
 ## some bash code
@@ -242,7 +242,7 @@ Some text
 Some text
 
 <!-- TOC ANCHOR --><a name="title-with-link-toc"></a>
-### Title with Link [TOC](http://sharevb-it-tools.vercel.app)
+### Title with Link [TOC](http://it-tools.khuong.dev)
 
 \`\`\`
 ## some bash code
@@ -278,7 +278,7 @@ Some text
 Some text
 
 <!-- TOC ANCHOR --><a name="title-with-link-toc"></a>
-### Title with Link [TOC](http://sharevb-it-tools.vercel.app)
+### Title with Link [TOC](http://it-tools.khuong.dev)
 
 \`\`\`
 ## some bash code

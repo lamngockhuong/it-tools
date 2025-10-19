@@ -77,8 +77,8 @@ const tools = computed<ToolCategory[]>(() => [
           </div>
           <div>
             © {{ new Date().getFullYear() }}
-            <c-link target="_blank" rel="noopener" href="https://corentin.tech?utm_source=it-tools&utm_medium=footer">
-              Corentin Thomasset
+            <c-link target="_blank" rel="noopener" href="https://khuong.dev?utm_source=it-tools&utm_medium=footer">
+              Khuong Dev
             </c-link>
           </div>
         </div>
@@ -119,7 +119,7 @@ const tools = computed<ToolCategory[]>(() => [
         <c-tooltip position="bottom" :tooltip="$t('home.support')">
           <c-button
             round
-            href="https://www.buymeacoffee.com/sharevb"
+            href="https://www.buymeacoffee.com/lamngockhuong"
             rel="noopener"
             target="_blank"
             class="support-button"

@@ -52,7 +52,7 @@ const dotTypes = ['dots',
 const cornersDotTypes = ['dot', 'square', 'heart'];
 const cornersSquareTypes = ['dot', 'square', 'extra-rounded'];
 
-const text = useQueryParam({ tool: 'qr-code-gen', name: 'text', defaultValue: 'https://sharevb-it-tools.vercel.app' });
+const text = useQueryParam({ tool: 'qr-code-gen', name: 'text', defaultValue: 'https://it-tools.khuong.dev' });
 const { qrcode } = useQRCodeStyling({
   text,
   color: { background, foreground },

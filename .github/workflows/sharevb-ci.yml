@@ -2,9 +2,9 @@ name: ci
 
 on:
   pull_request:
-  push:
-    branches:
-      - chore/all-my-stuffs
+  # push:
+  #   branches:
+  #     - feat/my-stuffs
 
 jobs:
   ci:
@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 22
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm i

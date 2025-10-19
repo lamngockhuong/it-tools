@@ -23,7 +23,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && . ./set_node_mem.sh && vite build",
+    "build": "vue-tsc --noEmit && . ./set_node_mem.sh && pnpm script:generate:sitemap && vite build",
     "preview": "vite preview --port 5050",
     "test": "TZ=UTC npm run test:unit",
     "test:unit": "TZ=UTC . ./set_node_mem.sh && vitest --environment jsdom",
@@ -37,7 +37,9 @@
     "release": "node ./scripts/release.mjs",
     "script:extract:desc": "node ./scripts/extract-tools-desc.mjs",
     "script:extract:strings": "node ./scripts/extract-tools-strings.mjs",
+    "script:extract:list": "node ./scripts/extract-tools-list.mjs",
     "script:translate-missing": "node ./scripts/translate-missings.mjs -e ./locales/en.yml -t ./locales/*.yml",
+    "script:generate:sitemap": "node ./scripts/generate-sitemap.mjs",
     "vue-i18n-extract": "vue-i18n-extract report --vueFiles 'src/**/*.?(ts|vue)' --languageFiles 'locales/*.yml'"
   },
   "dependencies": {

@@ -1,14 +1,14 @@
 ## BREAKING CHANGE for Docker Image
 
-Since *Docker base image* is now `nginx-unpriviledged`, docker image now listen to **8080** and no more 80. So you need to update your port mapping, ie from `8080:80` to `8080:8080`.
+Since _Docker base image_ is now `nginx-unpriviledged`, docker image now listen to **8080** and no more 80. So you need to update your port mapping, ie from `8080:80` to `8080:8080`.
 
-Docker image listen to IPv6, so it needs to be enabled: https://serverfault.com/questions/1147296/how-to-enable-ipv6-on-ubuntu-20-04. Alternatively, you can mount your own `nginx.conf` own using docker option `-v "./nginx.conf:/etc/nginx/conf.d/nginx.conf"` (with `listen [::]:8080;` removed)
+Docker image listen to IPv6, so it needs to be enabled: <https://serverfault.com/questions/1147296/how-to-enable-ipv6-on-ubuntu-20-04>. Alternatively, you can mount your own `nginx.conf` own using docker option `-v "./nginx.conf:/etc/nginx/conf.d/nginx.conf"` (with `listen [::]:8080;` removed)
 
 ## PR Welcome
 
 Especially for UI improvements and translation. And for anything else.
 
-Want to support this fork of IT Tools: [Buy me a coffee](https://www.buymeacoffee.com/sharevb)
+Want to support this fork of IT Tools: [Buy me a coffee](https://www.buymeacoffee.com/lamngockhuong)
 
 ## HTTPS is recommanded
 
@@ -17,13 +17,14 @@ Some tools like PGP encryption rely on WebCrypto API that is only available in H
 So even on internal installations, you can enable HTTPS using Let's Encrypt using DNS Challenge
 
 Some docs about DNS Challenge:
-- https://medium.com/@life-is-short-so-enjoy-it/homelab-nginx-proxy-manager-setup-ssl-certificate-with-domain-name-in-cloudflare-dns-732af64ddc0b
-- https://doc.traefik.io/traefik/user-guides/docker-compose/acme-dns/
-- https://medium.com/@svenvanginkel/traefik-letsencrypt-dns01-challenge-with-ovhcloud-52f2a2c6d08a
 
-Related doc for CyberPanel: https://community.cyberpanel.net/t/reverse-proxy-traffic-to-docker-container-on-cyberpanel/30644
+- <https://medium.com/@life-is-short-so-enjoy-it/homelab-nginx-proxy-manager-setup-ssl-certificate-with-domain-name-in-cloudflare-dns-732af64ddc0b>
+- <https://doc.traefik.io/traefik/user-guides/docker-compose/acme-dns/>
+- <https://medium.com/@svenvanginkel/traefik-letsencrypt-dns01-challenge-with-ovhcloud-52f2a2c6d08a>
 
-### Check out these change here: <https://sharevb-it-tools.vercel.app/> or <https://sharevb.github.io/it-tools/>
+Related doc for CyberPanel: <https://community.cyberpanel.net/t/reverse-proxy-traffic-to-docker-container-on-cyberpanel/30644>
+
+### Check out these change here: <https://it-tools.khuong.dev/>
 
 You can use my image in your docker-compose file if you want an update to date version of it-tools (with my PR and some of others) until the main branch has been updated.
 
@@ -69,6 +70,7 @@ services:
 You can add custom content in Home page by mounting a `home.custom.md` in `/usr/share/nginx/html`.
 
 You can filter available tools by mounting `tools-filter.json` in `/usr/share/nginx/html`. It can contains the following filtering regex:
+
 ```json
 {
   "excludeCategoryFilterRegex": "",
@@ -77,15 +79,17 @@ You can filter available tools by mounting `tools-filter.json` in `/usr/share/ng
   "includeToolsFilterRegex": ""
 }
 ```
+
 Category matches on category (English) names ; Tools matches on tools path/url.
 
-See (docker-tools-filter-and-home-content)[https://github.com/sharevb/it-tools]
+See [docker-tools-filter-and-home-content](https://github.com/sharevb/it-tools)
 
 ## Setting default tools parameters / default UI language at runtime
 
 You can set default tools parameters by mounting a `tools-setting.json` in `/usr/share/nginx/html`.
 
 It is a two level json, first level for `tool name`, second level for `parameter name`:
+
 ```json
 {
   "regex-tester": {
@@ -97,7 +101,9 @@ It is a two level json, first level for `tool name`, second level for `parameter
 ```
 
 You can find `tool name` and `parameter name` in the tools source code `src/tools` subfolder :
+
 - for pattern like `const global = useQueryParamOrStorage({ storageName: 'regex-tester:g', name: 'global', defaultValue: true });`:
+
 ```json
 {
   "regex-tester": {
@@ -105,7 +111,9 @@ You can find `tool name` and `parameter name` in the tools source code `src/tool
   }
 }
 ```
+
 - for pattern like `const value = useQueryParam({ tool: 'barcode-gen', name: 'text', defaultValue: '123456789' });`:
+
 ```json
 {
   "barcode-gen": {
@@ -113,7 +121,9 @@ You can find `tool name` and `parameter name` in the tools source code `src/tool
   }
 }
 ```
+
 - for pattern like `const width = useITStorage('ascii-text-drawer:width', 80);`:
+
 ```json
 {
   "ascii-text-drawer": {
@@ -123,13 +133,14 @@ You can find `tool name` and `parameter name` in the tools source code `src/tool
 ```
 
 To define default UI language, add a `default_locale` key to json:
+
 ```json
 {
   "default_locale": "fr"
 }
 ```
 
-## To build using a custom default language:
+## To build using a custom default language
 
 ```
 docker build -t it-tools-fr --build-arg VITE_LANGUAGE=fr .
@@ -138,7 +149,8 @@ docker run -d --name it-tools-fr --restart unless-stopped -p 8080:8080 it-tools-
 
 ## Build docker image for a custom subfolder
 
-According to https://github.com/sharevb/it-tools/pull/461#issuecomment-1602506049 and https://github.com/CorentinTh/it-tools/pull/461:
+According to <https://github.com/sharevb/it-tools/pull/461#issuecomment-1602506049> and <https://github.com/CorentinTh/it-tools/pull/461>:
+
 ```
 docker build -t it-tools  --build-arg BASE_URL="/my-folder/" .
 docker run -d --name it-tools --restart unless-stopped -p 8080:8080 it-tools
@@ -152,7 +164,7 @@ So you would need to put another server in front of it, like [Nginx Proxy Manage
 
 For `/it-tools/` subfolder, you can use `baseurl-it-tools` tag.
 
-See [sample of docker-compose.yml and nginx.conf](https://github.com/sharevb/it-tools/docker-subfolder-sample), this docker image needs to have another reverse proxy in front of it, like [Nginx Proxy Manager](https://nginxproxymanager.com/), [Traefik](https://traefik.io/traefik/), [caddy](https://caddyserver.com/) etc. 
+See [sample of docker-compose.yml and nginx.conf](https://github.com/sharevb/it-tools/docker-subfolder-sample), this docker image needs to have another reverse proxy in front of it, like [Nginx Proxy Manager](https://nginxproxymanager.com/), [Traefik](https://traefik.io/traefik/), [caddy](https://caddyserver.com/) etc.
 
 Setup a reverse proxy pass using `/it-tools/`. And you should be able to access it-tools in `/it-tools/` of your server.
 
@@ -164,24 +176,24 @@ cd it-tools/docker-subfolder-sample/
 docker compose up
 ```
 
-Then navigate to http://localhost:8080/it-tools/
+Then navigate to <http://localhost:8080/it-tools/>
 
-## To build using a custom folder:
+## To build using a custom folder
 
 1. `BASE_URL="/it-tools/" pnpm build`
 2. Rename the generated `dist` folder to `it-tools` and serve on `https://your-domain.com/it-tools`
 
-## To build for GitHub Pages:
+## To build for GitHub Pages
 
 1. Enable GitHub Pages build and deployment option in your fork, under **Settings** > **Pages** and select **GitHub Actions** as the source
-2. Add the following GitHub action to your repo: https://github.com/sharevb/it-tools/.github/workflows/sharevb-github-pages-publish.yml
+2. Add the following GitHub action to your repo: <https://github.com/sharevb/it-tools/.github/workflows/sharevb-github-pages-publish.yml>
 
 ## To add authentication
 
 Assuming you're already hosting it-tools behind a reverse proxy, you can configure forward-auth and enforce authentication from the reverse proxy
 
-* [Official guides](https://docs.goauthentik.io/docs/add-secure-apps/providers/proxy/server_nginx) with nginx. Guides with other reverse proxy setups are available
-* [Step-by-step setup guide with nginx-proxy-manager](https://geekscircuit.com/set-up-authentik-sso-with-nginx-proxy-manager/)
+- [Official guides](https://docs.goauthentik.io/docs/add-secure-apps/providers/proxy/server_nginx) with nginx. Guides with other reverse proxy setups are available
+- [Step-by-step setup guide with nginx-proxy-manager](https://geekscircuit.com/set-up-authentik-sso-with-nginx-proxy-manager/)
 
 (thanks @jogerj)
 
@@ -264,11 +276,11 @@ It will create a directory in `src/tools` with the correct files, and a the impo
 
 Local installation required installing first: `python3 make g++`
 
-| Docker Image                            | Local Installation                                                                                                          |
-|-----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| Docker Image                                                                                                                                                                       | Local Installation                                                                                                                                                                              |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | GitHub Container Registry: <span title="triple click me!">`ghcr.io/sharevb/it-tools:latest`</span><br/>Docker Hub: <span title="triple click me!">`sharevb/it-tools:latest`</span> | <span title="triple click me!">`sudo apt-get install python3 make g++ && git clone -b chore/all-my-stuffs https://github.com/sharevb/it-tools.git && cd it-tools/ && pnpm i && pnpm dev`</span> |
-| replace your current image with this image | copy & paste oneliner (from github repo) |
-| You may need to clear cache and hard reload to get new features loading | Installing packages for the first time may take some time; please wait until it finishes |
+| replace your current image with this image                                                                                                                                         | copy & paste oneliner (from github repo)                                                                                                                                                        |
+| You may need to clear cache and hard reload to get new features loading                                                                                                            | Installing packages for the first time may take some time; please wait until it finishes                                                                                                        |
 
 <picture>
     <source srcset="./.github/logo-dark.png" media="(prefers-color-scheme: light)">
@@ -278,7 +290,7 @@ Local installation required installing first: `python3 make g++`
 
 <details>
 
-Useful tools for developer and people working in IT. [Have a look !](https://sharevb-it-tools.vercel.app).
+Useful tools for developer and people working in IT. [Have a look !](https://it-tools.khuong.dev).
 
 ## Functionalities and roadmap
 
@@ -308,7 +320,6 @@ docker run -d --name it-tools --restart unless-stopped -p 8080:8080 ghcr.io/core
 - [Tipi](https://www.runtipi.io/docs/apps-available)
 - [Unraid](https://unraid.net/community/apps?q=it-tools)
 - [YunoHost](https://apps.yunohost.org/app/it-tools)
-
 
 ## Contributors
 

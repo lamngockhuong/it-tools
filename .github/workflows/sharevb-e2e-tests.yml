@@ -1,9 +1,9 @@
 name: E2E tests
 on:
   pull_request:
-  push:
-    branches:
-      - chore/all-my-stuffs
+  # push:
+  #   branches:
+  #     - feat/my-stuffs
 jobs:
   test:
     timeout-minutes: 30
@@ -24,7 +24,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 22
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - name: Get Playwright version
         id: playwright-version

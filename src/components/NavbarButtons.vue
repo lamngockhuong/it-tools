@@ -11,7 +11,7 @@ const { isDarkTheme } = toRefs(styleStore);
     <c-button
       circle
       variant="text"
-      href="https://github.com/sharevb/it-tools"
+      href="https://github.com/lamngockhuong/it-tools"
       target="_blank"
       rel="noopener noreferrer"
       :aria-label="$t('home.nav.githubRepository')"

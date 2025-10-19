@@ -4,9 +4,10 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
   VITE_VERCEL_ENV: production
 on:
-  push:
-    branches:
-      - chore/all-my-stuffs
+  # push:
+  #   branches:
+  #     - feat/my-stuffs
+  workflow_dispatch:
 jobs:
   Deploy-Production:
     runs-on: ubuntu-latest
@@ -16,7 +17,10 @@ jobs:
         run: npm install --global vercel@latest
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
       - name: Build Project Artifacts
+        env:
+          SITEMAP_BASE_URL: "https://tools.khuong.dev"
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --archive=tgz --prod --token=${{ secrets.VERCEL_TOKEN }}

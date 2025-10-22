@@ -1,0 +1,1 @@
+var s=(t=>(t[t.BASE_2=1024]="BASE_2",t[t.BASE_10=1e3]="BASE_10",t))(s||{});function n(t,B=2,e=1024){if(t===0)return"0 Bytes";const o=e,a=["Bytes","KB","MB","GB","TB","PB","EB","ZB","YB"],r=Math.floor(Math.log(t)/Math.log(o));return`${Number.parseFloat((t/o**r).toFixed(B))} ${a[r]}`}export{s as U,n as f};

@@ -1,0 +1,1 @@
+import{bo as b}from"./index-1de3a68b.js";function d(n){var l=n==null?0:n.length;return l?n[l-1]:void 0}function g(n,l){return n<l}function m(n,l,f){for(var i=-1,o=n.length;++i<o;){var t=n[i],e=l(t);if(e!=null&&(s===void 0?e===e&&!b(e):f(e,s)))var s=e,a=t}return a}export{g as a,m as b,d as l};

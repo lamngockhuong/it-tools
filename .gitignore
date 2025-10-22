@@ -14,6 +14,9 @@ dist-ssr
 coverage
 *.local
 
+# prerendered/ folder is committed for GitHub Pages deployment
+# It contains pre-built files ready for deployment
+
 /cypress/videos/
 /cypress/screenshots/
 

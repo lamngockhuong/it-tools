@@ -1,0 +1,57 @@
+name: Deploy Pre-built Files
+
+env:
+  VITE_VERCEL_ENV: production
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+  # Uncomment to deploy on push
+  # push:
+  #   branches: ["feat/my-stuffs"]
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify dist folder exists
+        run: |
+          if [ ! -d "prerendered" ]; then
+            echo "❌ Error: prerendered folder not found!"
+            echo "💡 Please run 'pnpm build:github' locally and commit the prerendered folder"
+            exit 1
+          fi
+
+          echo "✅ prerendered folder found"
+          echo "📊 Files in prerendered:"
+          ls -lh prerendered/ | head -20
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./prerendered"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

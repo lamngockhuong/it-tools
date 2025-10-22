@@ -1,0 +1,41 @@
+import{o as l,c as n,S as r,d as i,bl as a,bm as u,k as d,l as t,bk as p}from"./index-1de3a68b.js";const m={class:"markdown-body"},h=r(`<h1>Kubernetes</h1><ul><li>PDF: <a href="https://sematext.com/kubernetes-cheat-sheet/">https://sematext.com/kubernetes-cheat-sheet/</a></li><li>WEBSITE: <a href="https://kubernetes.io/">https://kubernetes.io/</a></li><li>DOCUMENTATION: <a href="https://kubernetes.io/docs/home">https://kubernetes.io/docs/home</a></li></ul><h2>Client Configuration</h2><ul><li>Setup autocomplete in bash; bash-completion package should be installed first</li></ul><pre><code>source &lt;(kubectl completion bash)
+</code></pre><ul><li>View Kubernetes config</li></ul><pre><code>kubectl config view
+</code></pre><ul><li>View specific config items by json path</li></ul><pre><code>kubectl config view -o jsonpath=&#39;{.users[?(@.name == &quot;k8s&quot;)].user.password}&#39;
+</code></pre><ul><li>Set credentials for <code>foo.kuberntes.com</code></li></ul><pre><code>kubectl config set-credentials kubeuser/foo.kubernetes.com --username=kubeuser --password=kubepassword
+</code></pre><ul><li>Set active namespace</li></ul><pre><code>kubectl config set-context --current --namespace=namespace_name
+</code></pre><h2>Viewing, Finding resources</h2><ul><li>List all services in the namespace</li></ul><pre><code>kubectl get services
+</code></pre><ul><li>List all pods in all namespaces in wide format</li></ul><pre><code>kubectl get pods -o wide --all-namespaces
+</code></pre><ul><li>List all pods in json (or yaml) format</li></ul><pre><code>kubectl get pods -o json
+</code></pre><ul><li>Describe resource details (node, pod, svc)</li></ul><pre><code>kubectl describe nodes my-node
+</code></pre><ul><li>List services sorted by name</li></ul><pre><code>kubectl get services --sort-by=.metadata.name
+</code></pre><ul><li>List pods sorted by restart count</li></ul><pre><code>kubectl get pods --sort-by=&#39;.status.containerStatuses[0].restartCount&#39;
+</code></pre><ul><li>Rolling update pods for frontend-v1</li></ul><pre><code>kubectl rolling-update frontend-v1 -f frontend-v2.json
+</code></pre><ul><li>Scale a replicaset named ‘foo’ to 3</li></ul><pre><code>kubectl scale --replicas=3 rs/foo
+</code></pre><ul><li>Scale a resource specified in “foo.yaml” to 3</li></ul><pre><code>kubectl scale --replicas=3 -f foo.yaml
+</code></pre><ul><li>Execute a command in every pod / replica</li></ul><pre><code>for i in 0 1; do kubectl exec foo-$i -- sh -c &#39;echo $(hostname) &gt; /usr/share/nginx/html/index.html&#39;; done
+</code></pre><h2>Manage Resources</h2><ul><li>Get documentation for pod or service</li></ul><pre><code>kubectl explain pods,svc
+</code></pre><ul><li>Create resource(s) like pods, services or daemonsets</li></ul><pre><code>kubectl create -f ./my-manifest.yaml
+</code></pre><ul><li>Apply a configuration to a resource</li></ul><pre><code>kubectl apply -f ./my-manifest.yaml
+</code></pre><ul><li>Start a single instance of Nginx</li></ul><pre><code>kubectl run nginx --image=nginx
+</code></pre><ul><li>Create a secret with several keys</li></ul><pre><code>cat &lt;&lt;EOF | kubectl create -f -
+apiVersion: v1
+kind: Secret
+metadata:
+ name: mysecret
+type: Opaque
+data:
+ password: $(echo &quot;s33msi4&quot; | base64)
+ username: $(echo &quot;jane&quot;| base64)
+EOF
+</code></pre><ul><li>Delete a resource</li></ul><pre><code>kubectl delete -f ./my-manifest.yaml
+</code></pre><h2>Monitoring &amp; Logging</h2><ul><li>Deploy Heapster from Github repository</li></ul><pre><code>kubectl create -f deploy/kube-config/standalone/
+</code></pre><ul><li>Show metrics for nodes</li></ul><pre><code>kubectl top node
+</code></pre><ul><li>Show metrics for pods</li></ul><pre><code>kubectl top pod
+</code></pre><ul><li>Show metrics for a given pod and its containers</li></ul><pre><code>kubectl top pod pod_name --containers
+</code></pre><ul><li>Dump pod logs (stdout)</li></ul><pre><code>kubectl logs pod_name
+</code></pre><ul><li>Stream pod container logs (stdout, multi-container case)</li></ul><pre><code>kubectl logs -f pod_name -c my-container
+</code></pre><h2>Interacting with running pods</h2><ul><li>Run command in pod</li></ul><pre><code>kubectl exec pod_name -- command_name
+</code></pre><ul><li>Run command in pod with multiple containers</li></ul><pre><code>kubectl exec pod_name -c container_name -- command_name
+</code></pre><ul><li>Get terminal of pod</li></ul><pre><code>kubectl exec -it pod_name /bin/sh
+</code></pre><ul><li>Get terminal of a container running in pod with multiple containers</li></ul><pre><code>kubectl exec -it pod_name -c container_name /bin/sh
+</code></pre><h3>Credits</h3><p><a href="https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/refs/heads/master/tools/kubernetes.md">https://raw.githubusercontent.com/LeCoupa/awesome-cheatsheets/refs/heads/master/tools/kubernetes.md</a></p>`,71),b=[h],f={__name:"k8s-memo.content",setup(c,{expose:e}){return e({frontmatter:{}}),(s,_)=>(l(),n("div",m,b))}},k=i({__name:"k8s-memo",setup(c){a(o=>({"56e20796":t(e).cardColor}));const e=u();return(o,s)=>(l(),n("div",null,[d(t(f))]))}});const y=p(k,[["__scopeId","data-v-599474a4"]]);export{y as default};

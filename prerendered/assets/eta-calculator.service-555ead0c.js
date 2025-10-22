@@ -1,0 +1,1 @@
+import{f as e}from"./formatDuration-2cf679b4.js";function m(s){const o=Math.floor(s%1e3),t=Math.floor((s-o)/1e3%60),r=Math.floor(((s-o)/1e3-t)/60%60),f=Math.floor((((s-o)/1e3-t)/60-r)/60);return e({hours:f,minutes:r,seconds:t})+(o>0?` ${o} ms`:"")}export{m as f};

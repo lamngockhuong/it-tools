@@ -1,0 +1,50 @@
+import{d as T,h as r,an as f,aD as Q,am as b,ap as V,aq as U,at as ee,aG as se,aQ as te,du as ue,au as ne,b_ as de,bA as ce,aF as pe,b$ as me,dv as fe,A as he,bp as q,ak as G,cH as ge,r as ye,br as K,bs as be,u as re,i as N,ax as ve,bJ as Pe,aW as D,bR as X,bK as O,c0 as Y,dw as Z,dx as $e,dy as E,dz as M,cw as Ve,ay as x}from"./index-1de3a68b.js";import{A as Ie}from"./ArrowDown-1689df4a.js";const Re=T({name:"ArrowUp",render(){return r("svg",{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 20 20"},r("g",{fill:"none"},r("path",{d:"M3.13 9.163a.5.5 0 1 0 .74.674L9.5 3.67V17.5a.5.5 0 0 0 1 0V3.672l5.63 6.165a.5.5 0 0 0 .738-.674l-6.315-6.916a.746.746 0 0 0-.632-.24a.746.746 0 0 0-.476.24L3.131 9.163z",fill:"currentColor"})))}}),o="0!important",ae="-1px!important";function C(e){return V(`${e}-type`,[b("& +",[f("button",{},[V(`${e}-type`,[U("border",{borderLeftWidth:o}),U("state-border",{left:ae})])])])])}function k(e){return V(`${e}-type`,[b("& +",[f("button",[V(`${e}-type`,[U("border",{borderTopWidth:o}),U("state-border",{top:ae})])])])])}const we=f("button-group",`
+ flex-wrap: nowrap;
+ display: inline-flex;
+ position: relative;
+`,[Q("vertical",{flexDirection:"row"},[Q("rtl",[f("button",[b("&:first-child:not(:last-child)",`
+ margin-right: ${o};
+ border-top-right-radius: ${o};
+ border-bottom-right-radius: ${o};
+ `),b("&:last-child:not(:first-child)",`
+ margin-left: ${o};
+ border-top-left-radius: ${o};
+ border-bottom-left-radius: ${o};
+ `),b("&:not(:first-child):not(:last-child)",`
+ margin-left: ${o};
+ margin-right: ${o};
+ border-radius: ${o};
+ `),C("default"),V("ghost",[C("primary"),C("info"),C("success"),C("warning"),C("error")])])])]),V("vertical",{flexDirection:"column"},[f("button",[b("&:first-child:not(:last-child)",`
+ margin-bottom: ${o};
+ margin-left: ${o};
+ margin-right: ${o};
+ border-bottom-left-radius: ${o};
+ border-bottom-right-radius: ${o};
+ `),b("&:last-child:not(:first-child)",`
+ margin-top: ${o};
+ margin-left: ${o};
+ margin-right: ${o};
+ border-top-left-radius: ${o};
+ border-top-right-radius: ${o};
+ `),b("&:not(:first-child):not(:last-child)",`
+ margin: ${o};
+ border-radius: ${o};
+ `),k("default"),V("ghost",[k("primary"),k("info"),k("success"),k("warning"),k("error")])])])]),Ce={size:{type:String,default:void 0},vertical:Boolean},ke=T({name:"ButtonGroup",props:Ce,setup(e){const{mergedClsPrefixRef:d,mergedRtlRef:c}=ee(e);return se("-button-group",we,d),te(ue,e),{rtlEnabled:ne("ButtonGroup",c,d),mergedClsPrefix:d}},render(){const{mergedClsPrefix:e}=this;return r("div",{class:[`${e}-button-group`,this.rtlEnabled&&`${e}-button-group--rtl`,this.vertical&&`${e}-button-group--vertical`],role:"group"},this.$slots)}});function Be(){return fe}const Se=de({name:"DynamicInput",common:ce,peers:{Input:pe,Button:me},self:Be}),Ae=Se,W=he("n-dynamic-input"),De=T({name:"DynamicInputInputPreset",props:{clsPrefix:{type:String,required:!0},value:{type:String,default:""},disabled:Boolean,parentPath:String,path:String,onUpdateValue:{type:Function,required:!0}},setup(){const{mergedThemeRef:e,placeholderRef:d}=q(W);return{mergedTheme:e,placeholder:d}},render(){const{mergedTheme:e,placeholder:d,value:c,clsPrefix:i,onUpdateValue:u,disabled:v}=this;return r("div",{class:`${i}-dynamic-input-preset-input`},r(G,{theme:e.peers.Input,"theme-overrides":e.peerOverrides.Input,value:c,placeholder:d,onUpdateValue:u,disabled:v}))}}),Oe=T({name:"DynamicInputPairPreset",props:{clsPrefix:{type:String,required:!0},value:{type:Object,default:()=>({key:"",value:""})},disabled:Boolean,parentPath:String,path:String,onUpdateValue:{type:Function,required:!0}},setup(e){const{mergedThemeRef:d,keyPlaceholderRef:c,valuePlaceholderRef:i}=q(W);return{mergedTheme:d,keyPlaceholder:c,valuePlaceholder:i,handleKeyInput(u){e.onUpdateValue({key:u,value:e.value.value})},handleValueInput(u){e.onUpdateValue({key:e.value.key,value:u})}}},render(){const{mergedTheme:e,keyPlaceholder:d,valuePlaceholder:c,value:i,clsPrefix:u,disabled:v}=this;return r("div",{class:`${u}-dynamic-input-preset-pair`},r(G,{theme:e.peers.Input,"theme-overrides":e.peerOverrides.Input,value:i.key,class:`${u}-dynamic-input-pair-input`,placeholder:d,onUpdateValue:this.handleKeyInput,disabled:v}),r(G,{theme:e.peers.Input,"theme-overrides":e.peerOverrides.Input,value:i.value,class:`${u}-dynamic-input-pair-input`,placeholder:c,onUpdateValue:this.handleValueInput,disabled:v}))}}),Ue=f("dynamic-input",{width:"100%"},[f("dynamic-input-item",`
+ margin-bottom: 10px;
+ display: flex;
+ flex-wrap: nowrap;
+ `,[f("dynamic-input-preset-input",{flex:1,alignItems:"center"}),f("dynamic-input-preset-pair",`
+ flex: 1;
+ display: flex;
+ align-items: center;
+ `,[f("dynamic-input-pair-input",[b("&:first-child",{"margin-right":"12px"})])]),U("action",`
+ align-self: flex-start;
+ display: flex;
+ justify-content: flex-end;
+ flex-shrink: 0;
+ flex-grow: 0;
+ margin: var(--action-margin);
+ `,[V("icon",{cursor:"pointer"})]),b("&:last-child",{marginBottom:0})]),f("form-item",`
+ padding-top: 0 !important;
+ margin-right: 0 !important;
+ `,[f("form-item-blank",{paddingTop:"0 !important"})])]),z=new WeakMap,Te=Object.assign(Object.assign({},re.props),{max:Number,min:{type:Number,default:0},value:Array,defaultValue:{type:Array,default:()=>[]},preset:{type:String,default:"input"},keyField:String,itemClass:String,itemStyle:[String,Object],keyPlaceholder:{type:String,default:""},valuePlaceholder:{type:String,default:""},placeholder:{type:String,default:""},disabled:Boolean,showSortButton:Boolean,createButtonProps:Object,onCreate:Function,onRemove:Function,"onUpdate:value":[Function,Array],onUpdateValue:[Function,Array],onClear:Function,onInput:[Function,Array]}),_e=T({name:"DynamicInput",props:Te,setup(e,{slots:d}){const{mergedComponentPropsRef:c,mergedClsPrefixRef:i,mergedRtlRef:u,inlineThemeDisabled:v}=ee(),m=q(ge,null),P=ye(e.defaultValue),L=K(e,"value"),h=be(L,P),I=re("DynamicInput","-dynamic-input",Ue,Ae,e,i),p=N(()=>{const{value:t}=h;if(Array.isArray(t)){const{max:n}=e;return n!==void 0&&t.length>=n}return!1}),j=N(()=>{const{value:t}=h;return Array.isArray(t)?t.length<=e.min:!0}),F=N(()=>{var t,n;return(n=(t=c?.value)===null||t===void 0?void 0:t.DynamicInput)===null||n===void 0?void 0:n.buttonSize});function g(t){const{onInput:n,"onUpdate:value":l,onUpdateValue:a}=e;n&&x(n,t),l&&x(l,t),a&&x(a,t),P.value=t}function _(t,n){if(t==null||typeof t!="object")return n;const l=E(t)?M(t):t;let a=z.get(l);return a===void 0&&z.set(l,a=Ve()),a}function B(t,n){const{value:l}=h,a=Array.from(l??[]),$=a[t];if(a[t]=n,$&&n&&typeof $=="object"&&typeof n=="object"){const le=E($)?M($):$,oe=E(n)?M(n):n,J=z.get(le);J!==void 0&&z.set(oe,J)}g(a)}function S(){y(-1)}function y(t){const{value:n}=h,{onCreate:l}=e,a=Array.from(n??[]);if(l)a.splice(t+1,0,l(t+1)),g(a);else if(d.default)a.splice(t+1,0,null),g(a);else switch(e.preset){case"input":a.splice(t+1,0,""),g(a);break;case"pair":a.splice(t+1,0,{key:"",value:""}),g(a);break}}function R(t){const{value:n}=h;if(!Array.isArray(n))return;const{min:l}=e;if(n.length<=l)return;const{onRemove:a}=e;a&&a(t);const $=Array.from(n);$.splice(t,1),g($)}function s(t,n,l){if(n<0||l<0||n>=t.length||l>=t.length||n===l)return;const a=t[n];t[n]=t[l],t[l]=a}function A(t,n){const{value:l}=h;if(!Array.isArray(l))return;const a=Array.from(l);t==="up"&&s(a,n,n-1),t==="down"&&s(a,n,n+1),g(a)}te(W,{mergedThemeRef:I,keyPlaceholderRef:K(e,"keyPlaceholder"),valuePlaceholderRef:K(e,"valuePlaceholder"),placeholderRef:K(e,"placeholder")});const ie=ne("DynamicInput",u,i),H=N(()=>{const{self:{actionMargin:t,actionMarginRtl:n}}=I.value;return{"--action-margin":t,"--action-margin-rtl":n}}),w=v?ve("dynamic-input",void 0,H,e):void 0;return{locale:Pe("DynamicInput").localeRef,rtlEnabled:ie,buttonSize:F,mergedClsPrefix:i,NFormItem:m,uncontrolledValue:P,mergedValue:h,insertionDisabled:p,removeDisabled:j,handleCreateClick:S,ensureKey:_,handleValueChange:B,remove:R,move:A,createItem:y,mergedTheme:I,cssVars:v?void 0:H,themeClass:w?.themeClass,onRender:w?.onRender}},render(){const{$slots:e,itemClass:d,buttonSize:c,mergedClsPrefix:i,mergedValue:u,locale:v,mergedTheme:m,keyField:P,itemStyle:L,preset:h,showSortButton:I,NFormItem:p,ensureKey:j,handleValueChange:F,remove:g,createItem:_,move:B,onRender:S,disabled:y}=this;return S?.(),r("div",{class:[`${i}-dynamic-input`,this.rtlEnabled&&`${i}-dynamic-input--rtl`,this.themeClass],style:this.cssVars},!Array.isArray(u)||u.length===0?r(D,Object.assign({block:!0,ghost:!0,dashed:!0,size:c},this.createButtonProps,{disabled:this.insertionDisabled||y,theme:m.peers.Button,themeOverrides:m.peerOverrides.Button,onClick:this.handleCreateClick}),{default:()=>X(e["create-button-default"],()=>[v.create]),icon:()=>X(e["create-button-icon"],()=>[r(O,{clsPrefix:i},{default:()=>r(Y,null)})])}):u.map((R,s)=>r("div",{key:P?R[P]:j(R,s),"data-key":P?R[P]:j(R,s),class:[`${i}-dynamic-input-item`,d],style:L},Z(e.default,{value:u[s],index:s},()=>[h==="input"?r(De,{disabled:y,clsPrefix:i,value:u[s],parentPath:p?p.path.value:void 0,path:p?.path.value?`${p.path.value}[${s}]`:void 0,onUpdateValue:A=>{F(s,A)}}):h==="pair"?r(Oe,{disabled:y,clsPrefix:i,value:u[s],parentPath:p?p.path.value:void 0,path:p?.path.value?`${p.path.value}[${s}]`:void 0,onUpdateValue:A=>{F(s,A)}}):null]),Z(e.action,{value:u[s],index:s,create:_,remove:g,move:B},()=>[r("div",{class:`${i}-dynamic-input-item__action`},r(ke,{size:c},{default:()=>[r(D,{disabled:this.removeDisabled||y,theme:m.peers.Button,themeOverrides:m.peerOverrides.Button,circle:!0,onClick:()=>{g(s)}},{icon:()=>r(O,{clsPrefix:i},{default:()=>r($e,null)})}),r(D,{disabled:this.insertionDisabled||y,circle:!0,theme:m.peers.Button,themeOverrides:m.peerOverrides.Button,onClick:()=>{_(s)}},{icon:()=>r(O,{clsPrefix:i},{default:()=>r(Y,null)})}),I?r(D,{disabled:s===0||y,circle:!0,theme:m.peers.Button,themeOverrides:m.peerOverrides.Button,onClick:()=>{B("up",s)}},{icon:()=>r(O,{clsPrefix:i},{default:()=>r(Re,null)})}):null,I?r(D,{disabled:s===u.length-1||y,circle:!0,theme:m.peers.Button,themeOverrides:m.peerOverrides.Button,onClick:()=>{B("down",s)}},{icon:()=>r(O,{clsPrefix:i},{default:()=>r(Ie,null)})}):null]}))]))))}});export{_e as _};

@@ -45,7 +45,12 @@ Use of WSL2 is recommended to develop using VSCode on Windows. Direct developmen
 
 ## Added features
 
-Almost [all tools PR of it-tools](https://github.com/sharevb/it-tools/pulls).
+- Almost [all tools PR, 192 of mine, of original it-tools](https://github.com/CorentinTh/it-tools/pulls)
+- 95% of [issues if original it-tools](https://github.com/CorentinTh/it-tools/issues)
+- Full UI translation in many language (Google Translated)
+- Many new tools
+- Many bug fixes and enhancements
+- Many customizations (Docker version)
 
 ## Container images
 
@@ -102,7 +107,7 @@ You can filter available tools by mounting `tools-filter.json` in `/usr/share/ng
 ```
 Category matches on category (English) names ; Tools matches on tools path/url.
 
-See (docker-tools-filter-and-home-content)[https://github.com/sharevb/it-tools]
+See [docker-tools-filter-and-home-content](https://github.com/sharevb/it-tools)
 
 ## Add custom external tools
 
@@ -129,7 +134,7 @@ You can add custom external tools (href or markdownContent) by mounting a `exter
 ]
 ```
 
-See (docker-tools-filter-and-home-content)[https://github.com/sharevb/it-tools]
+See [docker-tools-filter-and-home-content](https://github.com/sharevb/it-tools)
 
 ## Setting default tools parameters / default UI language at runtime
 
